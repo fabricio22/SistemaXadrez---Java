@@ -1,15 +1,13 @@
 package br.com.jogoxadrez.application;
 
-import br.com.jogoxadrez.tabuleiro.Posicao;
-import br.com.jogoxadrez.tabuleiro.Tabuleiro;
+import br.com.jogoxadrez.xadrez.PartidaXadrez;
 
 public class Application {
 
 	public static void main(String[] args) {
 
-		Tabuleiro tabuleiro = new Tabuleiro(3, 3);
-
-		System.out.println(tabuleiro);
+       PartidaXadrez partidaXadrez = new PartidaXadrez();
+       UI.exibirTabulerio(partidaXadrez.getPecas());
 	}
 
 }
