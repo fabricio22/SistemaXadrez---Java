@@ -61,4 +61,19 @@ public class Tabuleiro {
 		return peca(posicao) != null;
 	}
 	
+	public Peca removerPeca(Posicao posicao) {
+		if(!posicaoExistente(posicao)) {
+			throw new ExcecaoTabuleiro("Peça não esta no tabuleiro.");
+		}
+		
+		if(peca(posicao) == null) {
+			return null;
+		}
+		
+		Peca auxiliar = peca(posicao);
+		auxiliar.posicao = null;
+		pecas[posicao.getLinha()][posicao.getColuna()] = null;
+		return auxiliar;
+	}
+	
 }
