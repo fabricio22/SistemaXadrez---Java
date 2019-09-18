@@ -2,7 +2,6 @@ package br.com.jogoxadrez.xadrez;
 
 import br.com.jogoxadrez.pecasxadrez.Rei;
 import br.com.jogoxadrez.pecasxadrez.Torre;
-import br.com.jogoxadrez.tabuleiro.Posicao;
 import br.com.jogoxadrez.tabuleiro.Tabuleiro;
 
 public class PartidaXadrez {
@@ -28,9 +27,13 @@ public class PartidaXadrez {
 		
 	}
 	
+	private void novoPosicaoPeca(char coluna, int linha, PecaXadrez peca) {
+		tabuleiro.colocarPecaNoTabuleiro(peca, new PosicaoXadrez(coluna, linha).toPosicao());
+	}
+	
 	private void configuracaoInicial() {
-		tabuleiro.colocarPecaNoTabuleiro(new Torre(tabuleiro, Color.BRANCO), new Posicao(2, 1));
-		tabuleiro.colocarPecaNoTabuleiro(new Rei(tabuleiro, Color.PRETO), new Posicao(0, 4));
-		tabuleiro.colocarPecaNoTabuleiro(new Rei(tabuleiro, Color.BRANCO), new Posicao(7, 4));
+		novoPosicaoPeca('b', 6, new Torre(tabuleiro, Color.BRANCO));
+		novoPosicaoPeca('e', 8, new Rei(tabuleiro, Color.PRETO));
+		novoPosicaoPeca('e', 1, new Rei(tabuleiro, Color.BRANCO));
 	}
 }
